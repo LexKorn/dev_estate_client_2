@@ -1,0 +1,121 @@
+@import '../../styles/style.sass'
+    
+.filter-panel
+    width: 80%
+    position: fixed
+    z-index: 100
+    &__burger
+        display: none
+    &__wrapper
+        background: $black2-color
+        padding-bottom: 8px
+    &__checks
+        display: flex
+        position: relative
+        &_region
+            position: absolute
+            margin-top: 15px
+        &_type
+            margin: 25px 50px 0 200px
+            label
+                margin-left: 5px
+                margin-right: 30px
+        &_rooms
+            margin: 25px 50px 0 0
+            label
+                margin-left: 5px
+                margin-right: 20px
+        &_btn
+            margin-top: 15px
+            height: 40px
+        &_reset
+            margin: 20px 0 0 15px
+            font-size: 20px
+            color: $yellow0-color
+            &::after
+                position: absolute
+                background: $black2-color
+                color: $yellow1-color
+                content: attr(data-tooltip)
+                top: 55px
+                right: 20px
+                font-size: 14px
+                opacity: 0
+                padding: 0
+                position: absolute
+                visibility: hidden
+                transition: all .6s ease-in-out
+            &:hover
+                cursor: pointer
+                color: whitesmoke
+                &::after
+                    opacity: 1
+                    visibility: visible
+    &__range
+        margin-top: 15px
+        margin-bottom: 20px
+        display: flex
+        justify-content: space-between
+    &__btn
+        display: none
+    
+
+@media (max-width: 1050px)
+    .filter-panel__checks
+        &_region, &_type, &_rooms
+            margin-right: 35px
+
+@media (max-width: 991px)
+    .filter-panel
+        width: 94%
+
+@media (max-width: 850px)
+    .filter-panel
+        &__checks
+            flex-direction: column
+            &_rooms, &_type
+                margin: 20px 0 0
+            &_btn
+                display: none
+            &_region
+                margin-top: 25px
+                position: static
+        &__range
+            flex-direction: column
+            height: 350px
+            justify-content: space-between
+            margin-top: 18px
+        &__wrapper
+            display: block
+            position: absolute
+            height: 100vh
+            padding-left: 15px
+            background: $black2-color
+            transition: all 0.6s ease
+            left: -4px
+            overflow-y: scroll
+            &.open-menu
+                left: -100%
+                background: none
+        &__burger
+            display: flex
+            justify-content: space-between
+            margin: 0
+            position: fixed
+            top: 60px
+            z-index: 100
+            cursor: pointer
+            transition: all 0.6s ease
+            &.open-menu
+                left: 5px
+            &_btn
+                margin-top: 17px
+                margin-left: 13px
+        &__btn
+            display: block
+        &__btns
+            display: flex
+            justify-content: space-between
+            width: 200px
+            margin-left: 80px
+    
